@@ -100,7 +100,7 @@ export class Enemy extends Phaser.GameObjects.Image {
           })
         );
 
-        this.lastShoot = this.scene.time.now + 400;
+        this.lastShoot = this.scene.time.now + 1000;
       }
     }
   }

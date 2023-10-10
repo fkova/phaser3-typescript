@@ -18,8 +18,6 @@ export class Player extends Phaser.GameObjects.Image {
 
   // input
   private cursors: Phaser.Types.Input.Keyboard.CursorKeys;
-  private rotateKeyLeft: Phaser.Input.Keyboard.Key;
-  private rotateKeyRight: Phaser.Input.Keyboard.Key;
   private shootingKey: Phaser.Input.Keyboard.Key;
 
   public getBullets(): Phaser.GameObjects.Group {
@@ -62,15 +60,6 @@ export class Player extends Phaser.GameObjects.Image {
 
     // input
     this.cursors = this.scene.input.keyboard.createCursorKeys();
-    this.rotateKeyLeft = this.scene.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.A
-    );
-    this.rotateKeyRight = this.scene.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.D
-    );
-    this.shootingKey = this.scene.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.SPACE
-    );
 
     // physics
     this.scene.physics.world.enable(this);
@@ -117,16 +106,19 @@ export class Player extends Phaser.GameObjects.Image {
       this.rotation += 0.02;
     }
 
-    // rotate barrel
-    if (this.rotateKeyLeft.isDown) {
-      this.barrel.rotation -= 0.05;
-    } else if (this.rotateKeyRight.isDown) {
-      this.barrel.rotation += 0.05;
-    }
+    const cursor = this.scene.input.activePointer;
+    const { scrollX, scrollY } = this.scene.cameras.main;
+
+    this.barrel.rotation = Phaser.Math.Angle.Between(
+      this.barrel.x,
+      this.barrel.y,
+      cursor.x + scrollX,
+      cursor.y + scrollY
+    ) + Math.PI / 2;
   }
 
   private handleShooting(): void {
-    if (this.shootingKey.isDown && this.scene.time.now > this.lastShoot) {
+    if (this.scene.input.activePointer.isDown && this.scene.time.now > this.lastShoot) {
       this.scene.cameras.main.shake(20, 0.005);
       this.scene.tweens.add({
         targets: this,
@@ -153,7 +145,7 @@ export class Player extends Phaser.GameObjects.Image {
           })
         );
 
-        this.lastShoot = this.scene.time.now + 80;
+        this.lastShoot = this.scene.time.now + 160;
       }
     }
   }

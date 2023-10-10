@@ -15,7 +15,7 @@
     "phaser": "3.60.0-beta.9"
   },
   "scripts": {
-    "dev": "npx webpack serve --mode development"
+    "dev": "webpack --mode development && npx webpack serve --mode development"
   },
   "repository": {
     "type": "git",
