@@ -1,0 +1,5 @@
+{
+    "extends": "@yandeu/prettier-config",
+    "semi": true,
+    "printWidth": 320
+}
