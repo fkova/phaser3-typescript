@@ -2,21 +2,12 @@
   <br>
   <a href="https://github.com/yandeu/phaser-project-template#readme"><img src="readme/header.png" alt="header" width="600"></a>
   <br>
-  Phaser 3 TypeScript Starter Template
+  Phaser 3 TypeScript Starter Template + Mobile
   <br>
 </h1>
 
 <h4 align="center">
 A starter template for <a href="https://phaser.io/" target="_blank" >Phaser 3</a> with <a href="https://www.typescriptlang.org/index.html" target="_blank" >TypeScript</a> and <a href="https://webpack.js.org/" target="_blank" >webpack</a> for building excellent html5-games that work great in the browser and on mobile devices.</h4>
-
-<p align="center">
-  <a href="https://opensource.org/licenses/MIT" title="License: MIT" >
-    <img src="https://img.shields.io/badge/License-MIT-greenbright.svg?style=flat-square">
-  </a>
-  <img src="https://img.shields.io/github/package-json/v/yandeu/phaser-project-template.svg?style=flat-square" alt="GitHub package.json version">
-  <img src="https://img.shields.io/github/last-commit/yandeu/phaser-project-template.svg?style=flat-square" alt="GitHub last commit">
-  <a href="https://github.com/prettier/prettier" alt="code style: prettier"><img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"></a>
-</p>
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
@@ -33,10 +24,6 @@ A starter template for <a href="https://phaser.io/" target="_blank" >Phaser 3</a
   <a href="#credits">Credits</a> •
   <a href="#license">License</a>
 </p>
-
-<blockquote align="center">
- Want to use ES6 instead of TypeScript? Check out the <a href="https://github.com/yandeu/phaser-project-template-es6#readme" >phaser-project-template-es6</a>
-</blockquote>
 
 ---
 
@@ -62,27 +49,26 @@ This is what you get after installing this template. A simple and clean starter 
 
 ## How To Use
 
-To clone and run this template, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
-
 ```bash
-# Clone this repository (yes, npx not npm)
-$ npx gitget yandeu/phaser-project-template phaser-template
-
-# Go into the repository
-$ cd phaser-template
-
 # Install dependencies
 $ npm install
 
 # Start the local development server (on port 8080)
 $ npm start
 
-# Ready for production?
 # Build the production ready code to the /dist folder
-$ npm run build
-
 # Play your production ready game in the browser
+$ npm run build
 $ npm run serve
+
+# How to build and run on Android device?
+# Install Android Studio with Android 13 SDK (API Level: 33), uninstall higher versions.
+$ npm run build
+$ npm run add-android # need to run only 1 time.
+$ npm run android
+
+# Customize Android Project directly in android studio?
+$ npm run android-studio
 ```
 
 Change the **gameName** in /webpack/webpack.common.js.
