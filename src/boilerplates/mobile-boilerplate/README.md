@@ -60,15 +60,6 @@ $ npm start
 # Play your production ready game in the browser
 $ npm run build
 $ npm run serve
-
-# How to build and run on Android device?
-# Install Android Studio with Android 13 SDK (API Level: 33), uninstall higher versions.
-$ npm run build
-$ npm run add-android # need to run only 1 time.
-$ npm run android
-
-# Customize Android Project directly in android studio?
-$ npm run android-studio
 ```
 
 Change the **gameName** in /webpack/webpack.common.js.
@@ -118,18 +109,17 @@ Read more about PWA on [developers.google.com](https://developers.google.com/web
 
 ## Native App
 
-The simplest way to build a Native App is using https://html2app.dev/.
+by using capacitor.
 
-Or built it manually using [Capacitor](https://capacitor.ionicframework.com/) and following its [Documentation](https://capacitor.ionicframework.com/docs/).  
-The only thing you need to change after installing Capacitor is the **webDir** inside the **capacitor.config.json** file. Set it to **dist** like so:
+```bash
+# How to build and run on Android device?
+# Install Android Studio with Android 13 SDK (API Level: 33), uninstall higher versions.
+$ npm run add-android # need to run only 1 time.
+$ npm run build
+$ npm run android
 
-```json
-{
-  "appId": "com.example.app",
-  "appName": "YOUR_APP_NAME",
-  "bundledWebRuntime": false,
-  "webDir": "dist"
-}
+# Customize Android Project directly in android studio?
+$ npm run android-studio
 ```
 
 ## Custom Configurations
